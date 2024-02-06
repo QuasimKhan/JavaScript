@@ -81,7 +81,7 @@ console.log(firstName)
 console.log(name3)
 ```
 
-## 02_NumberandMath.js
+## 03_NumberandMath.js
 ```Javascript
 // In this program I will learn about number and math in JS 
 
