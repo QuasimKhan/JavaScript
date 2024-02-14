@@ -27,3 +27,6 @@ progLang.forEach((values,indexes,completearray)=>{
     Ruby 3 [ 'JavaScript', 'c++', 'java', 'Ruby', 'Python' ]
     Python 4 [ 'JavaScript', 'c++', 'java', 'Ruby', 'Python' ]
 */
+
+
+// Note :- for each loop return undefined or nothing 
