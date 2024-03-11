@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+
+
+    <style>
+        body{
+            /* background-color: #212121; */
+        }
+        h1{
+            background-color: teal;
+            text-align: center;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(24, 148, 148);
+            width: 100vw;
+        }
+        div>h2{
+            width: auto;
+            text-align: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+        .para{
+            display: none;
+        }
+    </style>
+</head>
+
+    <h1>JMI Books</h1>
+
+    <div id="container">
+        <h2 id="books">Click Here to view all books</h2>
+
+        <div class="para">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsam fuga necessitatibus, cupiditate possimus cumque harum explicabo impedit! Dolorem, consequuntur? Voluptatibus illo modi mollitia soluta sit fugit eum, debitis accusamus.
+            Fuga amet placeat atque beatae id deserunt cum iusto quis dolore asperiores sint iure eveniet ducimus voluptatem blanditiis accusamus quae quaerat ut iste quod, in ea porro. Porro, dolorum atque.
+            Quos, minima. Illo temporibus eum provident nulla! Quaerat laboriosam esse natus dolores totam praesentium nostrum quia ipsam dolorem! Voluptas sunt voluptatum explicabo ducimus ad vel vitae reprehenderit minima consequuntur! Saepe?
+            Debitis quo dolor aut, maiores quisquam harum impedit hic placeat dolorem. Eum voluptate error quo, architecto illo dolorem saepe pariatur quaerat veniam neque iusto ad quis eveniet fugiat veritatis voluptatibus!
+            Culpa earum rem eveniet, obcaecati amet ut. Nobis cum optio totam ut, consequatur accusamus maiores obcaecati nulla numquam accusantium, labore amet. Nisi suscipit aperiam et similique itaque debitis saepe aliquid.
+            Atque totam inventore ducimus error enim possimus ipsa quia, velit culpa! Voluptatem iure quod excepturi magnam consectetur, voluptates autem porro unde reprehenderit deleniti laborum, molestias, nesciunt ipsam? Ipsam, repudiandae impedit.
+            Placeat dolor nisi laudantium at officiis totam commodi, ipsum nostrum in quod ducimus numquam inventore corporis sed cumque temporibus hic. Aliquam reiciendis quae expedita rem magnam possimus maiores soluta obcaecati?
+            Dolorum corporis laborum minima porro numquam ad. Voluptatibus rerum facilis inventore sequi commodi! Facilis nihil praesentium ad, ex mollitia eos vel ea impedit iste fuga accusantium dolor omnis, quibusdam rerum!
+            Ratione harum repellat quo, ex saepe quas ea animi asperiores enim, quisquam, commodi officiis in culpa rerum maxime quis pariatur illo architecto doloribus unde cum quidem exercitationem voluptatem. Dignissimos, maxime.
+            Cupiditate facere rem totam sequi quisquam. Labore reprehenderit fugit cumque ratione laudantium, provident itaque voluptatem error totam porro magni praesentium reiciendis facere, et fugiat vitae excepturi vel mollitia illo laborum.
+        </div>
+    </div>
+    <script>
+       const heading = document.getElementById("books")
+       const para = document.querySelector(".para")
+        heading.addEventListener("click", ()=>{
+            if(para.style.display == "block"){
+                para.style.display = "none"
+            }
+            else{
+                para.style.display = "block"
+
+            }
+        })
+    </script>
+</body>
+</html>
