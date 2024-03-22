@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Nav Bar Using JS</title>
+</head>
+<body class="bg-violet-400">
+
+        <nav class="bg-lime-300 w-full h-11 flex justify-between items-center px-10 ">
+            <div>
+                <h1 id="logo" class="block">Logo</h1>
+            </div>
+            <div class="hidden sm:block">
+                <ul class="flex gap-10">
+                    <li class="cursor-pointer hover:text-red-300">Home</li>
+                    <li class="cursor-pointer hover:text-red-300">About</li>
+                    <li class="cursor-pointer hover:text-red-300">Contact</li>
+                </ul>
+            </div>
+            <div id="bar" class="sm:hidden">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div id="nav-bar-close" class="hidden">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </nav>
+        
+
+
+        <!-- NAv Bar for small device -->
+        <header id="phone-nav" class="hidden">
+        <nav class="bg-lime-300 w-screen h-screen flex flex-col items-center px-10 gap-10 z-10">
+            <div>
+                <h1 id="nav-bar-close" class="text-xl text-center">Logo</h1>
+            </div>
+            <div>
+                <ul class="">
+                    <li class="cursor-pointer hover:text-red-300">Home</li>
+                    <li class="cursor-pointer hover:text-red-300">About</li>
+                    <li class="cursor-pointer hover:text-red-300">Contact</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <main>
+        <div id="pdf-view">Pdf Viewer</div>
+        <div id="book-close" class="hidden">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <embed id="book" class="w-full h-screen hidden" src="https://ia804608.us.archive.org/30/items/Islamic_Books_001/Tanqeehaat.pdf#toolbar=0" type="application/pdf">
+    </main>
+
+
+        <script>
+            const bar = document.getElementById('bar')
+            const navBarClose = document.getElementById('nav-bar-close')
+            const phoneNav = document.getElementById('phone-nav')
+            const logo = document.getElementById('logo')
+
+            bar.addEventListener('click', ()=>{
+                phoneNav.classList.remove('hidden')
+                bar.classList.add('hidden')
+                navBarClose.classList.remove('hidden')
+                logo.classList.add('hidden')
+
+            })
+            navBarClose.addEventListener('click', ()=>{
+                phoneNav.classList.add('hidden')
+                bar.classList.remove('hidden')
+                navBarClose.classList.add('hidden')
+                logo.classList.remove('hidden')
+
+            })
+
+            const pdfView = document.getElementById('pdf-view')
+            const book = document.getElementById('book')
+            const bookClose = document.getElementById('book-close')
+            pdfView.addEventListener('click', ()=>{
+                book.classList.remove('hidden')
+                bookClose.classList.remove('hidden')
+                pdfView.classList.add('hidden')
+            })
+            bookClose.addEventListener('click', ()=>{
+                book.classList.add('hidden')
+                bookClose.classList.add('hidden')
+                pdfView.classList.remove('hidden')
+            })
+        </script>
+</body>
+</html>

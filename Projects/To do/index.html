@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .line-through {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-md w-full bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Todo List</h1>
+        <input type="text" id="todoInput" class="border border-gray-300 rounded-md px-3 py-2 w-full mb-4" placeholder="Enter your task...">
+        <button onclick="addTodo()" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add</button>
+        <ul id="todoList" class="mt-4">
+            <!-- Todo items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        // Load todos from local storage when the page loads
+        window.onload = function () {
+            var todos = JSON.parse(localStorage.getItem('todos')) || [];
+            todos.forEach(function (todo) {
+                addTodoElement(todo);
+            });
+        };
+
+        // Function to add a new todo
+        function addTodo() {
+            var inputField = document.getElementById("todoInput");
+            var todoText = inputField.value.trim();
+
+            if (todoText === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            var todos = JSON.parse(localStorage.getItem('todos')) || [];
+            todos.push(todoText);
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            addTodoElement(todoText);
+
+            inputField.value = "";
+        }
+
+        // Function to add a todo element to the list
+        function addTodoElement(todoText) {
+            var todoList = document.getElementById("todoList");
+            var li = document.createElement("li");
+            li.textContent = todoText;
+            li.classList.add("border-b", "border-gray-200", "py-2", "flex", "items-center");
+
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "❌";
+            deleteButton.classList.add("ml-auto", "text-red-600");
+            deleteButton.onclick = function () {
+                removeTodoElement(li, todoText);
+            };
+
+            var completeButton = document.createElement("button");
+            completeButton.textContent = "✅";
+            completeButton.classList.add("ml-2", "text-green-600");
+            completeButton.onclick = function () {
+                toggleTodoComplete(li);
+            };
+
+            li.appendChild(completeButton);
+            li.appendChild(deleteButton);
+            todoList.appendChild(li);
+        }
+
+        // Function to remove a todo element from the list
+        function removeTodoElement(todoElement, todoText) {
+            var todoList = document.getElementById("todoList");
+            todoList.removeChild(todoElement);
+
+            var todos = JSON.parse(localStorage.getItem('todos')) || [];
+            var index = todos.indexOf(todoText);
+            if (index !== -1) {
+                todos.splice(index, 1);
+                localStorage.setItem('todos', JSON.stringify(todos)); // Update local storage after deletion
+            }
+        }
+
+        // Function to toggle the completion status of a todo
+        function toggleTodoComplete(todoElement) {
+            todoElement.classList.toggle("line-through");
+        }
+    </script>
+</body>
+</html>
