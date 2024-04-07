@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats html</title>
+</head>
+<body style="background-color: darkblue;">
+    
+    <button id="btn">New Image</button>
+    <img id="img" alt="">
+    <script>
+
+        const btn = document.getElementById('btn')
+        const img = document.getElementById('img')
+        async function getData(){
+   const response = await fetch('https://api.thecatapi.com/v1/images/search')
+   const data = await response.json()
+   img.setAttribute('src', data[0].url)
+   img.setAttribute('width', '300px')
+   img.setAttribute('height', '300px')
+
+   console.log(data)
+}
+
+btn.addEventListener('click', () => {
+    getData()
+})
+    </script>
+</body>
+</html>
